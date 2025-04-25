@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >Detalle del Viaje </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Calificar este viaje</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-buttons>
+        <ion-button *ngFor="let star of [1,2,3,4,5]" (click)="calificar(star)">
+          <ion-icon
+            name="star"
+            [color]="star <= calificacion ? 'warning' : 'medium'"
+            slot="icon-only">
+          </ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <p>Calificación: {{ calificacion }}/5</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Comentario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Tu nombre</ion-label>
+        <ion-input [(ngModel)]="nuevoComentario.usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Comentario</ion-label>
+        <ion-textarea [(ngModel)]="nuevoComentario.texto"></ion-textarea>
+      </ion-item>
+      <ion-button expand="full" (click)="agregarComentario()">Enviar Comentario</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="comentarios.length > 0">
+    <ion-card-header>
+      <ion-card-title>Comentarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let c of comentarios">
+          <ion-label>
+            <h3>{{ c.usuario }}</h3>
+            <p>{{ c.texto }}</p>
+            <small>{{ c.fecha }}</small>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

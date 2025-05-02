@@ -7,13 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  email: string = '';
-  password: string = '';
+  email = '';
+  password = '';
 
   constructor(private router: Router) {}
 
-  login() {
-    if (this.email === 'admin@foro.com' && this.password === '1234') {
+  login(): void {
+    const isValidUser = this.email.trim() === 'admin@foro.com' && this.password === '1234';
+
+    if (isValidUser) {
       this.router.navigate(['/home']);
     } else {
       alert('Credenciales incorrectas');

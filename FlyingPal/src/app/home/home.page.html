@@ -13,5 +13,13 @@
       </ion-label>
       <ion-button slot="end" (click)="verDetalle(viaje)">Ver</ion-button>
     </ion-item>
+
+    <ion-item *ngFor="let viaje of viajes">
+      <ion-label>
+        <h2>{{ viaje.destino }}</h2>
+        <p>{{ viaje.descripcion }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="verDetalle(viaje)">Ver</ion-button>
+    </ion-item>
   </ion-list>
 </ion-content>

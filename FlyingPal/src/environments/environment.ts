@@ -9,29 +9,29 @@ import { doc, setDoc } from "firebase/firestore";
 export const environment = {
   production: false,
   firebaseConfig:{
-    apiKey: "AIzaSyCokNkalDZAlbzhv5CawHVIDtn7_ijCuIw",
-    authDomain: "appdispensador-8446d.firebaseapp.com",
-    projectId: "appdispensador-8446d",
-    storageBucket: "appdispensador-8446d.appspot.com",
-    messagingSenderId: "229485553443",
-    appId: "1:229485553443:web:4f776d28bfd1f4a52dce96"
+    apiKey: "AIzaSyB4bzwV8pi98EGtdX5ZTpW_PWpLa1-wTaw",
+    authDomain: "flyingpal-41818.firebaseapp.com",
+    projectId: "flyingpal-41818",
+    storageBucket: "flyingpal-41818.firebasestorage.app",
+    messagingSenderId: "986516745298",
+    appId: "1:986516745298:web:3c9979876bfc6aac3bc38b"
     },
   firebase: {
-  apiKey: "AIzaSyCokNkalDZAlbzhv5CawHVIDtn7_ijCuIw",
-  authDomain: "appdispensador-8446d.firebaseapp.com",
-  projectId: "appdispensador-8446d",
-  storageBucket: "appdispensador-8446d.appspot.com",
-  messagingSenderId: "229485553443",
-  appId: "1:229485553443:web:4f776d28bfd1f4a52dce96"
+  apiKey: "AIzaSyB4bzwV8pi98EGtdX5ZTpW_PWpLa1-wTaw",
+  authDomain: "flyingpal-41818.firebaseapp.com",
+  projectId: "flyingpal-41818",
+  storageBucket: "flyingpal-41818.firebasestorage.app",
+  messagingSenderId: "986516745298",
+  appId: "1:986516745298:web:3c9979876bfc6aac3bc38b"
   }
   }
   const firebaseConfig = {
-    apiKey: "AIzaSyCokNkalDZAlbzhv5CawHVIDtn7_ijCuIw",
-    authDomain: "appdispensador-8446d.firebaseapp.com",
-    projectId: "appdispensador-8446d",
-    storageBucket: "appdispensador-8446d.appspot.com",
-    messagingSenderId: "229485553443",
-    appId: "1:229485553443:web:4f776d28bfd1f4a52dce96"
+    apiKey: "AIzaSyB4bzwV8pi98EGtdX5ZTpW_PWpLa1-wTaw",
+    authDomain: "flyingpal-41818.firebaseapp.com",
+    projectId: "flyingpal-41818",
+    storageBucket: "flyingpal-41818.firebasestorage.app",
+    messagingSenderId: "986516745298",
+    appId: "1:986516745298:web:3c9979876bfc6aac3bc38b"
     };
  
   const app =

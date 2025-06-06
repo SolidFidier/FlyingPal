@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular'; // Importa MenuController aquí
+import { Router } from '@angular/router'; // Importa Router
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,25 @@ export class HomePage {
     { id: 3, destino: 'Patagonia', descripcion: 'Paisajes impresionantes y naturaleza.' },
   ];
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private router: Router,       
+    private menu: MenuController 
+  ) {}
 
   verDetalle(viaje: any) {
     this.navCtrl.navigateForward('/trip-detail', {
       state: { viaje }
     });
+  }
+
+  async logout() {
+    console.log('Cerrar Sesión clickeado.');
+
+    // Para cerrar menu
+    await this.menu.close('main-content'); 
+
+    // Direcciona a la parte de login = cerrar sesion
+    this.router.navigateByUrl('/login', { replaceUrl: true });
   }
 }

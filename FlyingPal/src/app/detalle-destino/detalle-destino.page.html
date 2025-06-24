@@ -1,0 +1,55 @@
+<ion-toolbar color="dark">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/home"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Agregar Comentario</ion-title>
+</ion-toolbar>
+
+
+<ion-content class="ion-padding" color="light">
+  <ion-card *ngIf="destino">
+    <img [src]="destino.img" />
+    <ion-card-header>
+      <ion-card-title>{{ destino.nombre }}</ion-card-title>
+      <p>Calificación promedio: ⭐ {{ promedioCalificacion() }}</p>
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngIf="destino.comentario"><strong>Comentario inicial:</strong> {{ destino.comentario }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>Comentarios</ion-list-header>
+    <ion-item *ngFor="let c of comentarios">
+      <ion-label>
+        <h3>⭐ {{ c.calificacion }}</h3>
+        <p>{{ c.comentario }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Comentario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Comentario</ion-label>
+        <ion-textarea [(ngModel)]="nuevoComentario.comentario"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Calificación</ion-label>
+        <ion-range min="1" max="5" step="0.1" snaps="true" [(ngModel)]="nuevoComentario.calificacion">
+          <ion-label slot="end">{{ nuevoComentario.calificacion }}</ion-label>
+        </ion-range>
+      </ion-item>
+
+      <ion-button expand="full" color="success" (click)="guardarComentario()">
+        Guardar Comentario
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>

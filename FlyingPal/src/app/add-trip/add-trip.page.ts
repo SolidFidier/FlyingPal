@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-trip',
@@ -7,15 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-trip.page.scss'],
 })
 export class AddTripPage {
-  titulo = '';
-  descripcion = '';
-  lugar = '';
-  fecha = '';
+  nuevoDestino = {
+    nombre: '',
+    img: '',
+    calificacion: 3,
+    comentario: ''
+  };
 
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
-  publicarViaje() {
-    console.log('Viaje publicado:', this.titulo, this.lugar, this.fecha);
-    this.router.navigate(['/home']);
+  guardarDestino() {
+    const destinos = JSON.parse(localStorage.getItem('destinos') || '[]');
+    destinos.push(this.nuevoDestino);
+    localStorage.setItem('destinos', JSON.stringify(destinos));
+    this.navCtrl.back();
   }
 }

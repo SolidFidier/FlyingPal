@@ -1,26 +1,71 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Foro de Viajes</ion-title>
-    <ion-title>Modificacion para realizar la captura de pantalla</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Travel Explorer</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let viaje of viajes">
-      <ion-label>
-        <h2>{{ viaje.destino }}</h2>
-        <p>{{ viaje.descripcion }}</p>
-      </ion-label>
-      <ion-button slot="end" (click)="verDetalle(viaje)">Ver</ion-button>
-    </ion-item>
+<ion-content color="light">
 
-    <ion-item *ngFor="let viaje of viajes">
-      <ion-label>
-        <h2>{{ viaje.destino }}</h2>
-        <p>{{ viaje.descripcion }}</p>
-      </ion-label>
-      <ion-button slot="end" (click)="verDetalle(viaje)">Ver</ion-button>
-    </ion-item>
-  </ion-list>
+  <!-- Sección de Top Destinos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Top Destinos</ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let destino of topDestinos">
+          <ion-card>
+            <img [src]="destino.img" />
+            <ion-card-content>
+              <h2>{{ destino.nombre }}</h2>
+              <p>⭐ {{ destino.calificacion }} ({{ destino.resenas }} reseñas)</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+ 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Próximos Viajes</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let viaje of proximosViajes">
+        <ion-thumbnail slot="start">
+          <img [src]="viaje.img" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ viaje.nombre }}</h2>
+          <p>Fecha: {{ viaje.fecha }}</p>
+        </ion-label>
+        <ion-badge color="success">⭐ {{ viaje.calificacion }}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="['/add-trip']" color="tertiary">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+<ion-row>
+  <ion-col size="6" *ngFor="let destino of topDestinos; let i = index">
+    <ion-card [routerLink]="['/detalle-destino', i]">
+      <img [src]="destino.img" />
+      <ion-card-content>
+        <h2>{{ destino.nombre }}</h2>
+        <p>⭐ {{ destino.calificacion }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+
+
+
+
 </ion-content>

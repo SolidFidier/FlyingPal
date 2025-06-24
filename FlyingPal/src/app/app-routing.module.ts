@@ -23,9 +23,14 @@ const routes: Routes = [
     path: 'add-trip',
     loadChildren: () => import('./add-trip/add-trip.module').then( m => m.AddTripPageModule)
   },
+    {
+  path: 'detalle-destino/:id',
+  loadChildren: () => import('./detalle-destino/detalle-destino.module').then(m => m.DetalleDestinoPageModule)
+  },
+
   {
-    path: 'trip-detail',
-    loadChildren: () => import('./trip-detail/trip-detail.module').then( m => m.TripDetailPageModule)
+    path: 'detalle-destino',
+    loadChildren: () => import('./detalle-destino/detalle-destino.module').then( m => m.DetalleDestinoPageModule)
   },
 ];
 

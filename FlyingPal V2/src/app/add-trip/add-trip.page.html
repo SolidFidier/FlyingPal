@@ -1,0 +1,39 @@
+<ion-toolbar color="dark">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/home"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Agregar Destino</ion-title>
+</ion-toolbar>
+
+
+<ion-content class="ion-padding" color="light">
+  <form (ngSubmit)="guardarDestino()">
+
+    <ion-item>
+      <ion-label position="stacked">Nombre del destino</ion-label>
+      <ion-input [(ngModel)]="nuevoDestino.nombre" name="nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">URL de la imagen</ion-label>
+      <ion-input [(ngModel)]="nuevoDestino.img" name="img"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Calificación (1 a 5)</ion-label>
+      <ion-range min="1" max="5" step="0.1" snaps="true" [(ngModel)]="nuevoDestino.calificacion" name="calificacion">
+        <ion-label slot="end">{{ nuevoDestino.calificacion }}</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Comentario</ion-label>
+      <ion-textarea [(ngModel)]="nuevoDestino.comentario" name="comentario"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" color="success" class="ion-margin-top">
+      Guardar Destino
+    </ion-button>
+
+  </form>
+</ion-content>

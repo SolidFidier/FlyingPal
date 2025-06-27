@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center">FlayingPal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-wrapper dark-theme" color="dark">
+  <div class="login-box">
+    <img src="assets/logo.png" alt="FlayingPal Logo" class="logo-img" />
+
+    <h2 class="login-title">Iniciar Sesión</h2>
+
+    <form (ngSubmit)="login()" class="form-container">
+
+      <ion-item lines="inset" color="dark">
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="inset" color="dark">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="login-button" color="primary">
+        Ingresar
+      </ion-button>
+
+    </form>
+
+    <ion-text class="register-text">
+      ¿No tienes cuenta? <a routerLink="/register">Regístrate aquí</a>
+    </ion-text>
+  </div>
+</ion-content>

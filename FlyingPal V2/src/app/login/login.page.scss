@@ -1,0 +1,52 @@
+.dark-theme {
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--ion-background-color);
+}
+
+.login-box {
+  width: 90%;
+  max-width: 400px;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: var(--ion-text-color);
+}
+
+.logo-img {
+  width: 100px;
+  margin: 0 auto 1rem auto;
+  filter: brightness(0.9);
+}
+
+.login-title {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.login-button {
+  margin-top: 1.5rem;
+  --background: #4e8cff;
+  --color: #ffffff;
+}
+
+.register-text {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+a {
+  color: #4e8cff;
+  text-decoration: none;
+}

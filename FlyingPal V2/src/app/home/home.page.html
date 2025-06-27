@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>FlayingPal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" class="ion-padding">
+
+  <!-- Perfil de Usuario -->
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-avatar>
+        <img src="assets/avatar.png" />
+      </ion-avatar>
+      <ion-card-title>Hola, {{ usuario.nombre || 'Viajero' }}</ion-card-title>
+      <ion-card-subtitle>{{ usuario.email || 'usuario@correo.com' }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button expand="block" color="danger" (click)="logout()">
+      Cerrar Sesión
+    </ion-button>
+  </ion-card>
+
+ 
+  <ion-searchbar placeholder="Buscar destinos..." [(ngModel)]="busqueda" debounce="300" color="dark"></ion-searchbar>
+
+ 
+  <ion-segment value="todos" color="tertiary">
+    <ion-segment-button value="todos">Todos</ion-segment-button>
+    <ion-segment-button value="playa">Playa</ion-segment-button>
+    <ion-segment-button value="montaña">Montaña</ion-segment-button>
+    <ion-segment-button value="ciudad">Ciudad</ion-segment-button>
+  </ion-segment>
+
+ 
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Top Destinos</ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let destino of topDestinos">
+          <ion-card color="dark" [routerLink]="['/detalle-destino', destino.id]">
+            <img [src]="destino.img" />
+            <ion-card-content>
+              <h2>{{ destino.nombre }}</h2>
+              <p>⭐ {{ destino.calificacion }} ({{ destino.resenas }} reseñas)</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+ 
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Próximos Viajes</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let viaje of proximosViajes" color="dark">
+        <ion-thumbnail slot="start">
+          <img [src]="viaje.img" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ viaje.nombre }}</h2>
+          <p>Fecha: {{ viaje.fecha }}</p>
+        </ion-label>
+        <ion-badge color="success">⭐ {{ viaje.calificacion }}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+ 
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Resumen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>✈️ Total viajes: {{ viajes?.length || 0 }}</p>
+      <p>📌 Favoritos: {{ favoritos?.length || 0 }}</p>
+      <p>🗓️ Próximos: {{ proximosViajes?.length || 0 }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  
+ <ion-footer>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/favoritos']">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/historial']">
+        <ion-icon slot="icon-only" name="time-outline"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/ajustes']">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/add-trip']" color="tertiary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

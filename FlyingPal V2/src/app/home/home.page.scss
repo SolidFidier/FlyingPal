@@ -1,0 +1,21 @@
+ion-content {
+  --background: #121212; // Fondo oscuro
+  color: #fff;
+}
+
+ion-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+h2, p, ion-label {
+  color: #000000;
+}
+
+ion-badge {
+  font-size: 0.9em;
+}
+
+ion-avatar img {
+  border: 2px solid #ffffff55;
+}
